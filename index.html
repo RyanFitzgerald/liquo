@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Liquo Demo</title>
+    <link rel="stylesheet" href="liquo/liquo.css" />
+</head>
+<body>
+    <div id="gallery-menu">
+        <a href="#" data-liquo="all">All</a>
+        <a href="#" data-liquo="1">Category 1</a>
+        <a href="#" data-liquo="2">Category 2</a>
+        <a href="#" data-liquo="3">Category 3</a>
+    </div>
+    <ul id="gallery">
+        <li data-liquo="1">
+            <img src="images/item1.jpg" />
+        </li>
+        <li data-liquo="2">
+            <img src="images/item2.jpg" />
+        </li data-liquo="3">
+        <li>
+            <img src="images/item3.jpg" />
+        </li>
+        <li  data-liquo="3">
+            <img src="images/item3.jpg" />
+        </li>
+        <li data-liquo="1">
+            <img src="images/item1.jpg" />
+        </li>
+        <li data-liquo="2">
+            <img src="images/item2.jpg" />
+        </li>
+    </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="liquo/liquo.min.js"></script>
+    <script>
+        $("#gallery").liquo({
+            menu: "#gallery-menu"
+        });
+    </script>
+</body>
+</html>

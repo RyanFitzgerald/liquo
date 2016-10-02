@@ -8,3 +8,14 @@
     Issues: http://github.com/ryanfitzgerald/liquo/issues
     Licensed under MIT Open Source
  */
+
+.liquo-gallery {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style-type: none;
+        display: inline-block;
+    }
+
+}
