@@ -1,0 +1,31 @@
+{
+  "name": "liquo",
+  "version": "1.0.0",
+  "description": "Filterable and Responsive Image Gallery",
+  "main": "liquo/liquo.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RyanFitzgerald/liquo.git"
+  },
+  "keywords": [
+    "javascript",
+    "jquery",
+    "image",
+    "gallery",
+    "filter",
+    "category"
+  ],
+  "author": "Ryan Fitzgerald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyanFitzgerald/liquo/issues"
+  },
+  "homepage": "https://github.com/RyanFitzgerald/liquo#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0"
+  }
+}
