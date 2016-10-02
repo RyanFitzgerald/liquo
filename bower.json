@@ -1,0 +1,25 @@
+{
+  "name": "liquo",
+  "description": "Filterable and Responsive Image Gallery",
+  "main": "liquo/liquo.js",
+  "authors": [
+    "Ryan Fitzgerald"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "javascript",
+    "jquery",
+    "image",
+    "gallery",
+    "filter",
+    "category"
+  ],
+  "homepage": "https://github.com/RyanFitzgerald/liquo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
