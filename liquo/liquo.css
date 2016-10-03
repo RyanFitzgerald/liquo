@@ -8,6 +8,9 @@
     Issues: http://github.com/ryanfitzgerald/liquo/issues
     Licensed under MIT Open Source
  */
+a[data-liquo].active {
+  font-weight: bold; }
+
 .liquo-gallery {
   margin: 0;
   padding: 0; }

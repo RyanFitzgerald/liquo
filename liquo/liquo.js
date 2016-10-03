@@ -28,9 +28,13 @@
             var $this = $(this); // Store reference to self
             var $menu = $(settings.menu);
             var $options = $menu.children("a[data-liquo]");
+            var last = null;
 
             // Add liquo classes
             $this.addClass("liquo-gallery");
+
+            // Add active class to "all"
+            $menu.children("a[data-liquo=all]").addClass("active");
 
             // Handle menu functionality
             $($options).click(function(e) {
@@ -41,11 +45,24 @@
                 // Get category
                 var category = $(this).data("liquo");
 
+                // Change active classes
+                if (!$(this).hasClass("active")) {
+                    $menu.find(".active").removeClass("active");
+                     $(this).addClass("active");
+                }
+
                 // Get category value
                 if (category == "all") {
-                    alert("All");
-                } else {
-                    alert(category);
+                    $this.find("li").fadeIn(300).removeClass("inactive");
+                    last = null;
+                } else if (last == null) {
+                    $this.find("li").not("[data-liquo="+category+"]").addClass("inactive").hide(300);
+                    last = category;
+                } else if (category != last) {
+                    $this.find("li[data-liquo="+last+"]").addClass("inactive").hide(300, function() {
+                        $this.find("li[data-liquo="+category+"]").removeClass("inactive").show(300);
+                    });
+                    last = category;
                 }
 
             });
