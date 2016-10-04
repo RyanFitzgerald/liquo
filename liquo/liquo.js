@@ -16,7 +16,6 @@
         // Override defaults, if provided
         var settings = $.extend({
             menu: null,
-            theme: null,
             start: "all",
             random: false
         }, options);
@@ -35,9 +34,6 @@
 
             // Add liquo class to ul
             $this.addClass("liquo-gallery");
-
-            // Add theme class if provided
-            if (settings.theme != null) $this.addClass(theme);
 
             // Add active class provided category if exists, otherwise add to "all"
             if (settings.start != "all" && $menu.children("a[data-liquo="+settings.start+"]").length > 0) {
