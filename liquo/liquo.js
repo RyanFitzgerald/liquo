@@ -33,30 +33,35 @@
             var $options = $menu.children("a[data-liquo]");
             var last = null;
 
-            // Add liquo classe
+            // Add liquo class to ul
             $this.addClass("liquo-gallery");
 
-            // Add theme if provided
+            // Add theme class if provided
             if (settings.theme != null) $this.addClass(theme);
 
-            // Add active class to "all" if no default provided
+            // Add active class provided category if exists, otherwise add to "all"
             if (settings.start != "all" && $menu.children("a[data-liquo="+settings.start+"]").length > 0) {
 
+                // Set active class on navigation
                 $menu.children("a[data-liquo="+settings.start+"]").addClass("liquo-active");
 
+                // Hide everything except active elements
                 $this.find("li").not("[data-liquo="+settings.start+"]").addClass("inactive").hide(300);
 
+                // Set last to starting category
                 last = settings.start;
 
             } else {
 
+                // Add active to all
                 $menu.children("a[data-liquo=all]").addClass("liquo-active");
 
             }
 
-            // Randomize if true
+            // Randomize if set to true
             if (settings.random) {
 
+                // Loop through each li element and sort randomly
                 $this.children("li").sort(function(a,b) {
 
                     return (Math.round(Math.random())-0.5);
@@ -65,7 +70,7 @@
 
             }
 
-            // Handle menu functionality
+            // Handle menu click functionality
             $($options).click(function(e) {
 
                 // Stop link functionality
@@ -84,33 +89,38 @@
                     $(this).addClass("liquo-active");
                 }
 
-                // Get category value
+                // If category is set to all, show all elements, otherwise, show only given category
                 if (category == "all") {
 
+                    // Show all elements
                     $this.find("li").show(300).removeClass("inactive");
 
+                    // Set last to null
                     last = null;
 
                 } else if ($this.find("li[data-liquo="+category+"]").length > 0) {
 
+                    // If first category clicked
                     if (last == null) {
 
+                        // Hide everything except current category
                         $this.find("li").not("[data-liquo="+category+"]").addClass("inactive").hide(300);
 
                     } else if (category != last) {
 
+                        // Hide last category elements
                         $this.find("li[data-liquo="+last+"]").addClass("inactive").hide(300, function() {
 
+                            // Show new category elements
                             $this.find("li[data-liquo="+category+"]").removeClass("inactive").show(300);
 
                         });
                     }
 
+                    // Update last with current category
                     last = category;
 
                 }
-
-
 
             });
 
