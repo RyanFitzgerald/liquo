@@ -1,50 +1,112 @@
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-    <title>Liquo Demo</title>
-    <link rel="stylesheet" href="liquo/liquo.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquo - Filterable Image Gallery jQuery Plugin</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/prism.css" />
+    <link rel="stylesheet" type="text/css" href="css/gridious.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
-<style>
-
-    .liquo-active {
-        font-weight: bold;
-    }
-
-</style>
 <body>
-    <div id="gallery-menu">
-        <a href="#" data-liquo="all">All</a>
-        <a href="#" data-liquo="1">Category 1</a>
-        <a href="#" data-liquo="2">Category 2</a>
-        <a href="#" data-liquo="3">Category 3</a>
-        <a href="#" data-liquo="4">Invalid Category</a>
-    </div>
-    <ul id="gallery">
-        <li data-liquo="1">
-            <img src="images/item1.jpg" />
-        </li>
-        <li data-liquo="2">
-            <img src="images/item2.jpg" />
-        </li>
-        <li data-liquo="3">
-            <img src="images/item3.jpg" />
-        </li>
-        <li  data-liquo="3">
-            <img src="images/item3.jpg" />
-        </li>
-        <li data-liquo="1">
-            <img src="images/item1.jpg" />
-        </li>
-        <li data-liquo="2">
-            <img src="images/item2.jpg" />
-        </li>
-    </ul>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="liquo/liquo.min.js"></script>
-    <script>
-        $("#gallery").liquo({
-            menu: "#gallery-menu",
-            random: true
-        });
-    </script>
+<div id="display">
+    <h1>Liquo</h1>
+    <h2>Filterable Image Gallery jQuery Plugin</h2>
+    <a href="https://github.com/RyanFitzgerald/liquo/archive/master.zip">Download</a>
+    <a href="https://github.com/RyanFitzgerald/liquo">View on GitHub</a>
+</div><!-- End display -->
+<div id="content">
+    <h2>Liquo</h2>
+    <p>
+        Liquo is a jQuery-based image gallery that allows filtering, randomizing on load, and setting the start category. Liquo allows you to have full control over the styling of the gallery and it's associated buttons.
+    </p>
+    <h2>Installation & Setup</h2>
+    <p>
+        All the installation that is required is simply including the compiled CSS and JS files in your document and Liquo will now be available on every page it is included on.
+    </p>
+    <p>
+        The basic structure of a Liquo gallery is as follows:
+    </p>
+<pre><code class="language-markup">&lt;div id=&quot;gallery-menu&quot;&gt;
+	&lt;a href=&quot;#&quot; data-liquo=&quot;all&quot;&gt;All&lt;/a&gt;
+	&lt;a href=&quot;#&quot; data-liquo=&quot;1&quot;&gt;Category 1&lt;/a&gt;
+	&lt;a href=&quot;#&quot; data-liquo=&quot;2&quot;&gt;Category 2&lt;/a&gt;
+	&lt;a href=&quot;#&quot; data-liquo=&quot;3&quot;&gt;Category 3&lt;/a&gt;
+&lt;/div&gt;
+&lt;ul id=&quot;gallery&quot;&gt;
+	&lt;li data-liquo=&quot;1&quot;&gt;
+		&lt;img src=&quot;images/item1.jpg&quot; /&gt;
+	&lt;/li&gt;
+	&lt;li data-liquo=&quot;2&quot;&gt;
+		&lt;img src=&quot;images/item2.jpg&quot; /&gt;
+	&lt;/li&gt;
+	&lt;li data-liquo=&quot;3&quot;&gt;
+		&lt;img src=&quot;images/item3.jpg&quot; /&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    <p>
+        The two important portions are the <b>#gallery-menu</b> and <b>#gallery</b>. The names can change, but both are required. The first, #gallery-menu, is the wrapper for the category buttons / links. The second, #gallery, is the ID for the ul that holds all the li elements.
+    </p>
+    <p>
+        Once you create the ul with all the li elements you want, simply add <i>data-liquo</i> to each with a value. Ensure that all images in the same category have the same value. Finally, also apply <i>data-liquo</i> to each of the links in the menu wrapper. This works by selecting all elements with the same <i>data-liquo</i> once the gallery-menu anchor is clicked. Also, if you want an option for all elements to be visible, ensure there is a menu item with <i>data-liquo="all"</i>. See the <a href="demo.html">demo page</a> for a larger example.
+    </p>
+    <h2>Configuration</h2>
+    <p>
+        There are a number of parameters you may override, or simply use the default provided ones (with the exception of menu, which must be provided):
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Default</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>menu</td>
+                <td><b>This paramater is required</b> and tells Liquo where the image category buttons / links can be found</td>
+                <td><i>null</i></td>
+            </tr>
+            <tr>
+                <td>start</td>
+                <td>This parameter sets the starting category and must correspond to a <i>data-liquo</i> value if used</td>
+                <td>all</td>
+            </tr>
+            <tr>
+                <td>random</td>
+                <td>This parameter randomizes the gallery every time the page is loaded if the order does not matter to you</td>
+                <td>false</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Example Usage</h2>
+    <p>
+        An example usage showing each parameter is as follows:
+    </p>
+<pre><code class="language-js">$("#gallery").liquo({
+	menu: "#gallery-menu",
+	start: "2",
+	random: true
+});</code></pre>
+    <h2>License</h2>
+    <p>
+        MIT
+    </p>
+    <a href="demo.html" class="button">View Demo</a>
+    <a href="https://github.com/RyanFitzgerald/liquo/archive/master.zip" class="button">Download</a>
+    <a href="https://github.com/RyanFitzgerald/liquo/" class="button">View on GitHub</a>
+</div><!-- End content -->
+<div id="footer">
+    <a href="https://ryanfitzgerald.ca" target="_blank">Website</a>
+    <a href="https://github.com/RyanFitzgerald" target="_blank">GitHub</a>
+    <a href="https://ca.linkedin.com/in/ryanfitzgerald10" target="_blank">LinkedIn</a>
+    <a href="http://stackoverflow.com/users/5343740/ryan-fitzgerald" target="_blank">StackOverflow</a>
+</div>
+<script src="js/scripts.js"></script>
+<script src="js/prism.js"></script>
 </body>
 </html>
