@@ -108,7 +108,7 @@
                         $this.find("li[data-liquo="+last+"]").addClass("inactive").fadeOut(300, function() {
 
                             // Show new category elements
-                            $this.find("li[data-liquo="+category+"]").removeClass("inactive").show(300);
+                            $this.find("li[data-liquo="+category+"]").removeClass("inactive").stop().show(300);
 
                         });
                     }
