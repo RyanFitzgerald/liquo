@@ -105,7 +105,7 @@
                     } else if (category != last) {
 
                         // Hide last category elements
-                        $this.find("li[data-liquo="+last+"]").addClass("inactive").hide(300, function() {
+                        $this.find("li[data-liquo="+last+"]").addClass("inactive").fadeOut(300, function() {
 
                             // Show new category elements
                             $this.find("li[data-liquo="+category+"]").removeClass("inactive").show(300);
